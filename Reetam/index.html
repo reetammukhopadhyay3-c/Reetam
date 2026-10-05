@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reetam Mukhopadhyay | Creative Polymath, Science, EE & Visuals</title>
+  <meta name="description" content="Portfolio of Reetam Mukhopadhyay — A creative polymath exploring Electrical & Electronics Engineering, Science, Video Editing, and Creative Tech. Creator of India Watch." />
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="midnight-glass-theme">
+
+  <!-- Custom Magnetic Cursor -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="custom-cursor-follower" class="custom-cursor-follower"></div>
+
+  <!-- Background Ambient Luminous Glows -->
+  <div class="ambient-glows">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <div class="grid-subtle-overlay"></div>
+  </div>
+
+  <!-- Three.js Canvas Container -->
+  <div id="webgl-canvas-container" class="webgl-container"></div>
+
+  <!-- Top Glass Navigation Bar -->
+  <header class="glass-nav-header" id="main-nav">
+    <div class="nav-container">
+      <a href="#hero" class="brand-badge magnetic-item" id="nav-brand">
+        <span class="brand-avatar">RM</span>
+        <div class="brand-text">
+          <span class="brand-name">Reetam Mukhopadhyay</span>
+          <span class="brand-role">Creative Polymath</span>
+        </div>
+      </a>
+
+      <nav class="nav-pill glass-panel">
+        <a href="#hero" class="nav-link active magnetic-item" data-target="hero">
+          <i data-lucide="sparkles"></i>
+          <span>Welcome</span>
+        </a>
+        <a href="#about" class="nav-link magnetic-item" data-target="about">
+          <i data-lucide="user"></i>
+          <span>About Me</span>
+        </a>
+        <a href="#craft" class="nav-link magnetic-item" data-target="craft">
+          <i data-lucide="cpu"></i>
+          <span>Crafts & Disciplines</span>
+        </a>
+        <a href="#india-watch" class="nav-link magnetic-item" data-target="india-watch">
+          <i data-lucide="globe"></i>
+          <span>India Watch</span>
+        </a>
+        <a href="#contact" class="nav-link magnetic-item" data-target="contact">
+          <i data-lucide="send"></i>
+          <span>Contact</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- 3D Scene Controls -->
+        <button id="scene-preset-btn" class="glass-icon-btn magnetic-item" title="Cycle 3D Core Geometry" aria-label="Cycle 3D Geometry">
+          <i data-lucide="box"></i>
+          <span class="btn-tooltip">Change 3D Core</span>
+        </button>
+
+        <!-- Sound Toggle -->
+        <button id="sound-toggle-btn" class="glass-icon-btn magnetic-item" title="Toggle Crystalline Audio" aria-label="Toggle Audio">
+          <i data-lucide="volume-2" id="sound-icon"></i>
+          <span class="btn-tooltip">Sound FX: ON</span>
+        </button>
+
+        <a href="#contact" class="btn-glass-primary magnetic-item nav-cta">
+          <span>Let's Talk</span>
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrollable Content -->
+  <main class="main-content-wrapper">
+
+    <!-- ==============================================
+         1. HERO SECTION (Must-Have: "hello fellas ,")
+         ============================================== -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-content">
+        
+        <!-- Fellow Creatives Callout Badge -->
+        <div class="hero-badge-wrapper gsap-hero-item">
+          <div class="frosted-pill-badge magnetic-item">
+            <span class="live-dot"></span>
+            <span class="badge-text">Built for fellow creators, tinkerers & visionaries</span>
+            <i data-lucide="sparkle" class="badge-sparkle"></i>
+          </div>
+        </div>
+
+        <!-- The Essential Requirement: "hello fellas ," (Letter-by-Letter Multi-Color) -->
+        <div class="hero-greeting-container gsap-hero-item">
+          <h1 class="hero-greeting-text">
+            <span class="multicolor-greeting">
+              <span class="colored-letter letter-1">h</span><span class="colored-letter letter-2">e</span><span class="colored-letter letter-3">l</span><span class="colored-letter letter-4">l</span><span class="colored-letter letter-5">o</span>
+              <span class="colored-space">&nbsp;</span>
+              <span class="colored-letter letter-6">f</span><span class="colored-letter letter-7">e</span><span class="colored-letter letter-8">l</span><span class="colored-letter letter-9">l</span><span class="colored-letter letter-10">a</span><span class="colored-letter letter-11">s</span>
+              <span class="colored-space">&nbsp;</span>
+              <span class="colored-letter letter-12">,</span>
+            </span>
+          </h1>
+        </div>
+
+        <!-- Polymath Sub-Headline -->
+        <div class="hero-bio-container gsap-hero-item">
+          <h2 class="hero-title">
+            I am <span class="colored-word word-mint">Reetam</span> <span class="colored-word word-gold">Mukhopadhyay</span>.
+          </h2>
+          <p class="hero-description">
+            A relentless <span class="colored-word word-orange">creative</span> who <span class="colored-word word-cyan">craves to do everything</span> — intertwining 
+            <span class="discipline-tag ee-tag"><i data-lucide="zap"></i> <span class="colored-word word-cyan">Electrical & Electronics</span></span>, 
+            <span class="discipline-tag sci-tag"><i data-lucide="atom"></i> <span class="colored-word word-purple">Pure Science</span></span>, 
+            <span class="discipline-tag video-tag"><i data-lucide="film"></i> <span class="colored-word word-pink">Video Storytelling</span></span>, and 
+            <span class="discipline-tag code-tag"><i data-lucide="code-2"></i> <span class="colored-word word-mint">Digital Product Building</span></span>.
+          </p>
+        </div>
+
+        <!-- Quick Interaction / CTA Row -->
+        <div class="hero-actions-row gsap-hero-item">
+          <a href="#about" class="btn-glass-primary magnetic-item">
+            <i data-lucide="compass"></i>
+            <span>Explore The Story</span>
+          </a>
+          <a href="#contact" class="btn-glass-secondary magnetic-item">
+            <i data-lucide="message-square"></i>
+            <span>Say Hello (Fellow Creative)</span>
+          </a>
+          <button id="hero-3d-interact-btn" class="btn-glass-ghost magnetic-item" title="Drag and rotate the 3D crystal above">
+            <i data-lucide="orbit"></i>
+            <span>Interact with 3D Core</span>
+          </button>
+        </div>
+
+        <!-- Live Floating Micro-Metrics Cards (Glassmorphism) -->
+        <div class="hero-metrics-grid gsap-hero-item">
+          <div class="metric-glass-card magnetic-item">
+            <div class="metric-icon-box sci-box">
+              <i data-lucide="atom"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-num">Physics & EE</span>
+              <span class="metric-label">Circuits, Signals & Math</span>
+            </div>
+          </div>
+
+          <div class="metric-glass-card magnetic-item">
+            <div class="metric-icon-box video-box">
+              <i data-lucide="film"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-num">Video Craft</span>
+              <span class="metric-label">Pacing, Cuts & Motion FX</span>
+            </div>
+          </div>
+
+          <div class="metric-glass-card magnetic-item">
+            <div class="metric-icon-box web-box">
+              <i data-lucide="globe"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-num">Live Project</span>
+              <span class="metric-label">India Watch Creator</span>
+            </div>
+          </div>
+
+          <div class="metric-glass-card magnetic-item">
+            <div class="metric-icon-box spark-box">
+              <i data-lucide="infinity"></i>
+            </div>
+            <div class="metric-info">
+              <span class="metric-num">Curiosity Index</span>
+              <span class="metric-label">Boundless Appetite</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Viewport Hint -->
+        <div class="scene-hint-wrapper gsap-hero-item">
+          <span class="hint-text"><i data-lucide="mouse-pointer-click"></i> Drag or move cursor to manipulate the 3D glass core in real-time</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         2. ABOUT ME SECTION (Deep Dive & Manifesto)
+         ============================================== -->
+    <section id="about" class="section about-section">
+      <div class="section-container">
+        
+        <div class="section-header-pill">
+          <i data-lucide="user-check"></i>
+          <span>Who I Am</span>
+        </div>
+
+        <h2 class="section-heading">
+          The Creative Polymath <span class="gradient-text">Manifesto</span>
+        </h2>
+        <p class="section-subheading">
+          Why settle for a single box when the universe is built on interconnected systems of physics, hardware, story, and code?
+        </p>
+
+        <div class="about-grid">
+          
+          <!-- Left Column: Story Card -->
+          <div class="glass-card story-card gsap-reveal">
+            <div class="glass-card-header">
+              <div class="avatar-ring">
+                <div class="avatar-initials">RM</div>
+              </div>
+              <div class="card-titles">
+                <h3>Reetam Mukhopadhyay</h3>
+                <span class="role-badge">Tinkerer • Engineer • Editor • Creator</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <blockquote class="manifesto-quote">
+                "<span class="colored-word word-gold">I crave to do everything</span> because true breakthrough creativity happens at the collision point between <span class="colored-word word-cyan">rigorous science</span> and <span class="colored-word word-pink">emotive art</span>."
+              </blockquote>
+              
+              <p class="story-paragraph">
+                Hey fellow creatives! I'm <strong class="colored-word word-mint">Reetam</strong>. Rather than being confined to one track, I operate as a <span class="colored-word word-gold">multi-hyphenate explorer</span>. My background in 
+                <span class="colored-word word-cyan">Electrical & Electronics Engineering</span> gives me an understanding of signals, microcontrollers, logic circuits, and the physical foundations of computing.
+              </p>
+              
+              <p class="story-paragraph">
+                Simultaneously, my passion for <span class="colored-word word-pink">Video Editing and Storytelling</span> drives me to sculpt pacing, emotional arcs, and visual rhythm. When you combine that with <span class="colored-word word-mint">creative code and web tools</span>, you get living systems that inform, inspire, and engage.
+              </p>
+
+              <!-- Interactive Trait Tags -->
+              <div class="polymath-tags-row">
+                <span class="polymath-chip"><i data-lucide="check-circle-2"></i> Polymath Mindset</span>
+                <span class="polymath-chip"><i data-lucide="cpu"></i> EE & Circuit Thinking</span>
+                <span class="polymath-chip"><i data-lucide="video"></i> Cinematic Video Editing</span>
+                <span class="polymath-chip"><i data-lucide="code"></i> Fullstack Prototyping</span>
+                <span class="polymath-chip"><i data-lucide="lightbulb"></i> Relentless Curiosity</span>
+              </div>
+            </div>
+
+            <div class="card-footer-actions">
+              <a href="#contact" class="btn-glass-sm magnetic-item">
+                <i data-lucide="handshake"></i>
+                <span>Collaborate with Me</span>
+              </a>
+              <a href="https://www.india-watch.site/" target="_blank" rel="noopener noreferrer" class="btn-glass-sm secondary magnetic-item">
+                <i data-lucide="external-link"></i>
+                <span>View India Watch</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: The 4 Core Creative Pillars -->
+          <div class="pillars-stack gsap-reveal">
+            
+            <!-- Pillar 1: Science & EE -->
+            <div class="glass-card pillar-card magnetic-card" data-pillar="ee">
+              <div class="pillar-icon-badge ee-gradient">
+                <i data-lucide="zap"></i>
+              </div>
+              <div class="pillar-details">
+                <div class="pillar-top-meta">
+                  <h4>Electrical & Electronics Engineering</h4>
+                  <span class="pill-mini">Science Core</span>
+                </div>
+                <p>
+                  Deep intuition for circuit analysis, digital logic, microprocessors, signal processing, and physical hardware behavior. Bridging the gap between physical electrons and digital logic.
+                </p>
+                <div class="pillar-skills-chips">
+                  <span>Circuits & PCB</span>
+                  <span>Digital Electronics</span>
+                  <span>Signals & Sensors</span>
+                  <span>Embedded Logic</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar 2: Video Editing -->
+            <div class="glass-card pillar-card magnetic-card" data-pillar="video">
+              <div class="pillar-icon-badge video-gradient">
+                <i data-lucide="film"></i>
+              </div>
+              <div class="pillar-details">
+                <div class="pillar-top-meta">
+                  <h4>Video Editing & Storytelling</h4>
+                  <span class="pill-mini">Visual Alchemy</span>
+                </div>
+                <p>
+                  Obsessed with micro-pacing, dynamic cuts, sound design integration, motion graphics, color grading, and creating visceral visual narratives that hold attention.
+                </p>
+                <div class="pillar-skills-chips">
+                  <span>Narrative Pacing</span>
+                  <span>Motion Graphics</span>
+                  <span>Sound Design & Sync</span>
+                  <span>Visual Rhythm</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar 3: Pure Science & Inquiry -->
+            <div class="glass-card pillar-card magnetic-card" data-pillar="science">
+              <div class="pillar-icon-badge sci-gradient">
+                <i data-lucide="atom"></i>
+              </div>
+              <div class="pillar-details">
+                <div class="pillar-top-meta">
+                  <h4>Science & Fundamental Physics</h4>
+                  <span class="pill-mini">Curiosity Engine</span>
+                </div>
+                <p>
+                  Driven by first-principles thinking. Exploring how the laws of nature, electromagnetic waves, and computational thermodynamics shape modern tech.
+                </p>
+                <div class="pillar-skills-chips">
+                  <span>First Principles</span>
+                  <span>Electromagnetism</span>
+                  <span>Mathematical Modeling</span>
+                  <span>Research & Synthesis</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar 4: Digital Craft & Web Innovation -->
+            <div class="glass-card pillar-card magnetic-card" data-pillar="web">
+              <div class="pillar-icon-badge web-gradient">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <div class="pillar-details">
+                <div class="pillar-top-meta">
+                  <h4>Creative Web & Interactive Systems</h4>
+                  <span class="pill-mini">Product Engine</span>
+                </div>
+                <p>
+                  Building experiential platforms like <strong>India Watch</strong>, 3D interactive canvases, and modern glassmorphic web apps that bring real ideas to life.
+                </p>
+                <div class="pillar-skills-chips">
+                  <span>Interactive 3D / Three.js</span>
+                  <span>GSAP Motion</span>
+                  <span>Modern Web Architecture</span>
+                  <span>UI/UX Craft</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         3. CRAFTS & DISCIPLINES (Interactive Playground)
+         ============================================== -->
+    <section id="craft" class="section craft-section">
+      <div class="section-container">
+        
+        <div class="section-header-pill">
+          <i data-lucide="sliders"></i>
+          <span>Multi-Disciplinary Playground</span>
+        </div>
+
+        <h2 class="section-heading">
+          Where Engineering Meets <span class="gradient-text">Creative Expression</span>
+        </h2>
+        <p class="section-subheading">
+          Explore interactive modules showing how each facet of my toolkit complements the others.
+        </p>
+
+        <!-- Interactive Craft Switcher -->
+        <div class="craft-tabs-wrapper gsap-reveal">
+          <div class="glass-segmented-control">
+            <button class="tab-btn active magnetic-item" data-craft="ee">
+              <i data-lucide="zap"></i>
+              <span>Hardware & EE</span>
+            </button>
+            <button class="tab-btn magnetic-item" data-craft="video">
+              <i data-lucide="film"></i>
+              <span>Video & Motion</span>
+            </button>
+            <button class="tab-btn magnetic-item" data-craft="science">
+              <i data-lucide="atom"></i>
+              <span>Science & Math</span>
+            </button>
+            <button class="tab-btn magnetic-item" data-craft="software">
+              <i data-lucide="terminal"></i>
+              <span>Web & Prototyping</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Craft Content Panels -->
+        <div class="craft-display-panel glass-card gsap-reveal" id="craft-display">
+          
+          <!-- Dynamic Content rendered via JS -->
+          <div class="craft-dynamic-content active" id="craft-panel-ee">
+            <div class="craft-layout">
+              <div class="craft-text-side">
+                <div class="tag-pill-sm"><i data-lucide="cpu"></i> Hardware Intelligence</div>
+                <h3>Electrical & Electronics Focus</h3>
+                <p>
+                  From analyzing circuit loops with Kirchhoff's laws to understanding microcontrollers, op-amps, and semiconductor physics — my engineering background brings structured logic and deep technical appreciation to all my creations.
+                </p>
+                
+                <div class="craft-highlights-list">
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Circuit Architecture & Analysis:</strong>
+                      <span>Analog & digital circuitry, voltage regulation, signal conditioning.</span>
+                    </div>
+                  </div>
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Embedded Hardware Integration:</strong>
+                      <span>Microcontroller interfacing, sensor data acquisition, logic sequencing.</span>
+                    </div>
+                  </div>
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Systems & Signal Integrity:</strong>
+                      <span>Noise reduction, signal filtering, frequency domain comprehension.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="craft-visual-side">
+                <div class="interactive-circuit-simulator glass-inset-panel">
+                  <div class="simulator-header">
+                    <span class="sim-title"><i data-lucide="activity"></i> Live Signal Waveform Generator</span>
+                    <span class="sim-freq" id="freq-display">Freq: 60 Hz</span>
+                  </div>
+                  <canvas id="circuit-wave-canvas" width="400" height="180"></canvas>
+                  <div class="sim-controls">
+                    <label for="freq-slider">Wave Frequency</label>
+                    <input type="range" id="freq-slider" min="10" max="150" value="60" class="glass-slider" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="craft-dynamic-content" id="craft-panel-video">
+            <div class="craft-layout">
+              <div class="craft-text-side">
+                <div class="tag-pill-sm"><i data-lucide="clapperboard"></i> Cinematic Craft</div>
+                <h3>Video Editing & Visual Storytelling</h3>
+                <p>
+                  Video is where time, sound, imagery, and emotion intertwine. I love editing videos with surgical precision — building tension, matching cuts to audio beats, and designing motion graphics that make complex ideas instantly comprehensible.
+                </p>
+                <div class="craft-highlights-list">
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Micro-Pacing & Rhythm:</strong>
+                      <span>Crafting narrative tempo that keeps viewers gripped from the first frame.</span>
+                    </div>
+                  </div>
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Dynamic Sound Design:</strong>
+                      <span>Layered Foley, ambient audio swells, and beat-synced audio transitions.</span>
+                    </div>
+                  </div>
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Visual Polish & Color Grading:</strong>
+                      <span>Refined color palettes and clean kinetic typography.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="craft-visual-side">
+                <div class="interactive-timeline-box glass-inset-panel">
+                  <div class="timeline-header">
+                    <span><i data-lucide="layers"></i> Interactive Edit Timeline</span>
+                    <span class="badge-timeline-fps">60 FPS • 4K</span>
+                  </div>
+                  <div class="timeline-tracks">
+                    <div class="timeline-track video-track">
+                      <span class="track-label">V2: Motion FX</span>
+                      <div class="track-block fx-block">Overlay Glow</div>
+                      <div class="track-block fx-block">Title Kinetic</div>
+                    </div>
+                    <div class="timeline-track video-track-1">
+                      <span class="track-label">V1: Main A-Roll</span>
+                      <div class="track-block clip-1">Scene Intro [00:00]</div>
+                      <div class="track-block clip-2">Science Breakdown</div>
+                      <div class="track-block clip-3">Climax Outro</div>
+                    </div>
+                    <div class="timeline-track audio-track">
+                      <span class="track-label">A1: Beat Sync</span>
+                      <div class="audio-waveform-bar"></div>
+                    </div>
+                  </div>
+                  <div class="timeline-play-bar">
+                    <button class="btn-timeline-play magnetic-item" id="timeline-scrub-btn">
+                      <i data-lucide="play" id="timeline-play-icon"></i>
+                      <span>Simulate Edit Scrub</span>
+                    </button>
+                    <span class="timecode-display" id="timecode-val">00:04:22:18</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="craft-dynamic-content" id="craft-panel-science">
+            <div class="craft-layout">
+              <div class="craft-text-side">
+                <div class="tag-pill-sm"><i data-lucide="sparkle"></i> First Principles</div>
+                <h3>Science & Theoretical Exploration</h3>
+                <p>
+                  Science is the ultimate toolkit for demystifying reality. I love exploring physics, thermodynamics, electromagnetism, and mathematical principles that govern everything from microelectronics to cosmic structures.
+                </p>
+                <div class="craft-highlights-list">
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>First-Principles Deconstruction:</strong>
+                      <span>Breaking complex challenges down to basic verifiable truths.</span>
+                    </div>
+                  </div>
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Mathematical Intuition:</strong>
+                      <span>Transforming abstract equations into visual and physical models.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="craft-visual-side">
+                <div class="interactive-science-box glass-inset-panel">
+                  <div class="science-eq-card">
+                    <span class="eq-tag">Maxwell's Equations & Electromagnetism</span>
+                    <div class="equation-math">∇ • E = ρ / ε₀ &nbsp;|&nbsp; ∇ × B = μ₀(J + ε₀ ∂E/∂t)</div>
+                    <p class="eq-desc">The bedrock of electrical waves, radio communication, and modern electronics.</p>
+                  </div>
+                  <div class="science-quote-pill">
+                    <i data-lucide="quote"></i>
+                    <span>"Nature uses only the longest threads to weave her patterns."</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="craft-dynamic-content" id="craft-panel-software">
+            <div class="craft-layout">
+              <div class="craft-text-side">
+                <div class="tag-pill-sm"><i data-lucide="code"></i> Digital Craft</div>
+                <h3>Web Architecture & Creative Code</h3>
+                <p>
+                  Bringing ideas into existence on the web. I build high-performance, aesthetically stunning, and responsive digital products that integrate 3D experiences, real-time data, and frictionless user experiences.
+                </p>
+                <div class="craft-highlights-list">
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Creator of India Watch:</strong>
+                      <span>A real-world live digital portal engineered to monitor, inform, and engage.</span>
+                    </div>
+                  </div>
+                  <div class="highlight-item">
+                    <i data-lucide="check-circle" class="hl-icon"></i>
+                    <div>
+                      <strong>Interactive 3D & GSAP Motion:</strong>
+                      <span>WebGL, Three.js, smooth camera controls, and physics-inspired animations.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="craft-visual-side">
+                <div class="glass-code-preview glass-inset-panel">
+                  <div class="code-top-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="code-file-name">creative-polymath.ts</span>
+                  </div>
+                  <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">reetam</span> = {
+  <span class="property">name</span>: <span class="string">"Reetam Mukhopadhyay"</span>,
+  <span class="property">creed</span>: <span class="string">"Crave to do everything"</span>,
+  <span class="property">disciplines</span>: [<span class="string">"EE"</span>, <span class="string">"Science"</span>, <span class="string">"Video"</span>, <span class="string">"Web"</span>],
+  <span class="property">liveProjects</span>: [<span class="string">"India Watch"</span>],
+  <span class="function">buildNext</span>: () => <span class="variable">Infinity</span>
+};</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         4. FEATURED LIVE PROJECT: INDIA WATCH
+         ============================================== -->
+    <section id="india-watch" class="section india-watch-section">
+      <div class="section-container">
+        
+        <div class="section-header-pill">
+          <i data-lucide="compass"></i>
+          <span>Featured Live Creation</span>
+        </div>
+
+        <h2 class="section-heading">
+          India Watch — <span class="gradient-text">Live Digital Portal</span>
+        </h2>
+        <p class="section-subheading">
+          A dedicated web platform conceptualized, built, and launched by Reetam Mukhopadhyay.
+        </p>
+
+        <div class="glass-card project-showcase-card gsap-reveal">
+          <div class="project-showcase-grid">
+            
+            <!-- Left Info Side -->
+            <div class="project-info-side">
+              <div class="project-badge-row">
+                <span class="live-pill"><span class="pulse-dot"></span> Live in Production</span>
+                <span class="domain-pill">www.india-watch.site</span>
+              </div>
+
+              <h3 class="project-main-title">India Watch</h3>
+              <p class="project-lead-desc">
+                An innovative web platform engineered to deliver timely insights, curated updates, and a modern digital perspective on Indian affairs, culture, and progress.
+              </p>
+
+              <div class="project-feature-list">
+                <div class="p-feature">
+                  <div class="p-feature-icon"><i data-lucide="shield-check"></i></div>
+                  <div>
+                    <strong>Purpose-Driven Architecture:</strong>
+                    <span>Designed for fast accessibility, clean information delivery, and real-time utility.</span>
+                  </div>
+                </div>
+                <div class="p-feature">
+                  <div class="p-feature-icon"><i data-lucide="sparkles"></i></div>
+                  <div>
+                    <strong>Modern User Interface:</strong>
+                    <span>Responsive, crisp layouts that bring content to the forefront seamlessly.</span>
+                  </div>
+                </div>
+                <div class="p-feature">
+                  <div class="p-feature-icon"><i data-lucide="zap"></i></div>
+                  <div>
+                    <strong>Built & Maintained by Reetam:</strong>
+                    <span>From conceptual design to domain deployment and performance optimization.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-action-buttons">
+                <a href="https://www.india-watch.site/" target="_blank" rel="noopener noreferrer" class="btn-glass-primary magnetic-item">
+                  <span>Visit india-watch.site</span>
+                  <i data-lucide="external-link"></i>
+                </a>
+                <button id="preview-modal-trigger" class="btn-glass-secondary magnetic-item">
+                  <i data-lucide="eye"></i>
+                  <span>Inspect Portal Details</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Showcase Mockup Side -->
+            <div class="project-preview-side">
+              <div class="mockup-glass-browser">
+                <div class="browser-glass-top">
+                  <div class="window-dots">
+                    <span class="w-dot red"></span>
+                    <span class="w-dot yellow"></span>
+                    <span class="w-dot green"></span>
+                  </div>
+                  <div class="browser-address-bar">
+                    <i data-lucide="lock" class="lock-icon"></i>
+                    <span>https://www.india-watch.site/</span>
+                  </div>
+                  <a href="https://www.india-watch.site/" target="_blank" rel="noopener noreferrer" class="browser-newtab magnetic-item" title="Open live site">
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                </div>
+
+                <div class="browser-inner-viewport">
+                  <!-- Visual Representative Preview Card -->
+                  <div class="iw-preview-hero">
+                    <div class="iw-watermark">INDIA WATCH</div>
+                    <div class="iw-hero-card glass-panel">
+                      <div class="iw-flag-accent"></div>
+                      <div class="iw-hero-badge"><i data-lucide="radio"></i> Live Portal</div>
+                      <h4>Tracking Trends, Insights & Perspectives</h4>
+                      <p>Created by Reetam Mukhopadhyay to serve insightful perspectives through modern web technologies.</p>
+                      <div class="iw-metrics-row">
+                        <div class="iw-m-item">
+                          <strong>Active</strong>
+                          <span>Platform</span>
+                        </div>
+                        <div class="iw-m-item">
+                          <strong>100%</strong>
+                          <span>Custom Crafted</span>
+                        </div>
+                        <div class="iw-m-item">
+                          <strong>Fast</strong>
+                          <span>Optimized</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         5. FOR FELLOW CREATIVES & CONTACT SECTION
+         ============================================== -->
+    <section id="contact" class="section contact-section">
+      <div class="section-container">
+        
+        <div class="section-header-pill">
+          <i data-lucide="users"></i>
+          <span>For Fellow Creatives & Collaborators</span>
+        </div>
+
+        <h2 class="section-heading">
+          Let's Build Something <span class="gradient-text">Exceptional Together</span>
+        </h2>
+        <p class="section-subheading">
+          Whether you want to build an engineering experiment, collaborate on a video film, design an interactive site, or bounce crazy polymath ideas — my door is wide open.
+        </p>
+
+        <div class="contact-grid">
+          
+          <!-- Left: Direct Channels & Presence -->
+          <div class="glass-card contact-info-card gsap-reveal">
+            <div class="card-inner-pad">
+              <div class="creative-callout-pill">
+                <i data-lucide="sparkles"></i>
+                <span>Open for Collabs, Freelance & Polymath Projects</span>
+              </div>
+
+              <h3>Connect Directly with Reetam</h3>
+              <p class="contact-blurb">
+                I believe the most groundbreaking creative work happens when thinkers from different domains combine their superpowers. Drop a note or ping me!
+              </p>
+
+              <!-- Quick Info List -->
+              <div class="contact-channels-list">
+                <div class="channel-item magnetic-item" id="copy-email-btn" title="Click to copy email">
+                  <div class="channel-icon-box"><i data-lucide="mail"></i></div>
+                  <div class="channel-text">
+                    <span class="channel-label">Email Me</span>
+                    <span class="channel-value" id="email-text">reetammukhopadhyay3@gmail.com</span>
+                  </div>
+                  <button class="copy-action-btn" aria-label="Copy Email">
+                    <i data-lucide="copy" id="copy-icon"></i>
+                  </button>
+                </div>
+
+                <a href="https://instagram.com/reetam911" target="_blank" rel="noopener noreferrer" class="channel-item magnetic-item" title="Visit Reetam's Instagram">
+                  <div class="channel-icon-box insta-box"><i data-lucide="instagram"></i></div>
+                  <div class="channel-text">
+                    <span class="channel-label">Instagram</span>
+                    <span class="channel-value">@reetam911</span>
+                  </div>
+                  <div class="external-action-btn"><i data-lucide="arrow-up-right"></i></div>
+                </a>
+
+                <a href="https://www.india-watch.site/" target="_blank" rel="noopener noreferrer" class="channel-item magnetic-item">
+                  <div class="channel-icon-box"><i data-lucide="globe"></i></div>
+                  <div class="channel-text">
+                    <span class="channel-label">Featured Website</span>
+                    <span class="channel-value">india-watch.site</span>
+                  </div>
+                  <div class="external-action-btn"><i data-lucide="arrow-up-right"></i></div>
+                </a>
+
+                <div class="channel-item magnetic-item">
+                  <div class="channel-icon-box"><i data-lucide="map-pin"></i></div>
+                  <div class="channel-text">
+                    <span class="channel-label">Focus Areas</span>
+                    <span class="channel-value">EE • Video • Science • Interactive Web</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Creative Types I Love Working With -->
+              <div class="fellow-creators-types">
+                <span class="type-title">Ideal Collaborations:</span>
+                <div class="collab-chips">
+                  <span class="collab-chip">🎬 Filmmakers & Video Editors</span>
+                  <span class="collab-chip">⚡ Hardware & Electronics Builders</span>
+                  <span class="collab-chip">🔬 Science Communicators</span>
+                  <span class="collab-chip">💻 Creative Technologists</span>
+                  <span class="collab-chip">🚀 Startup Founders</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: Interactive Glass Contact Form -->
+          <div class="glass-card contact-form-card gsap-reveal">
+            <div class="card-inner-pad">
+              <div class="form-header">
+                <h3>Drop a Message</h3>
+                <span class="form-note">I usually respond within 24 hours</span>
+              </div>
+
+              <form id="contact-form" class="glass-form" onsubmit="return false;">
+                
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label for="sender-name">Your Name / Handle <span class="req">*</span></label>
+                    <div class="input-glass-wrapper">
+                      <i data-lucide="user" class="input-icon"></i>
+                      <input type="text" id="sender-name" placeholder="e.g. Alex Morgan" required class="glass-input" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="sender-email">Your Email <span class="req">*</span></label>
+                    <div class="input-glass-wrapper">
+                      <i data-lucide="at-sign" class="input-icon"></i>
+                      <input type="email" id="sender-email" placeholder="alex@creatives.com" required class="glass-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="collab-type">What type of collaboration are you envisioning?</label>
+                  <div class="input-glass-wrapper">
+                    <i data-lucide="sparkles" class="input-icon"></i>
+                    <select id="collab-type" class="glass-input glass-select">
+                      <option value="creative-project">🎥 Video Editing / Cinematic Collaboration</option>
+                      <option value="engineering-hardware">⚡ Electrical & Electronics / Hardware</option>
+                      <option value="web-product">🌐 Web App / Digital Product (like India Watch)</option>
+                      <option value="science-discussion">🔬 Science & Research Discussion</option>
+                      <option value="casual-hello">☕ Just saying hello fellas!</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="sender-msg">Your Message <span class="req">*</span></label>
+                  <div class="input-glass-wrapper textarea-wrap">
+                    <i data-lucide="message-square" class="input-icon textarea-icon"></i>
+                    <textarea id="sender-msg" rows="4" placeholder="Tell me about your idea, project, or what crazy concept you want to explore..." required class="glass-input glass-textarea"></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" id="submit-contact-btn" class="btn-glass-primary submit-btn magnetic-item">
+                  <span id="btn-submit-text">Send Message</span>
+                  <i data-lucide="send" id="btn-submit-icon"></i>
+                </button>
+
+              </form>
+
+              <!-- Live Toast Alert Area -->
+              <div id="contact-toast" class="contact-toast glass-panel" style="display: none;">
+                <i data-lucide="check-circle-2" class="toast-icon"></i>
+                <div class="toast-content">
+                  <strong>Message Sent to Reetam!</strong>
+                  <span>Thanks fellow creative! I'll be in touch real soon.</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================================
+       MODAL: INDIA WATCH IN-DEPTH PREVIEW
+       ============================================== -->
+  <div id="project-modal" class="glass-modal-overlay" style="display: none;">
+    <div class="glass-modal-content glass-card">
+      <button id="modal-close-btn" class="modal-close-btn magnetic-item" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-pill"><i data-lucide="globe"></i> Featured Project</div>
+        <h3>India Watch (india-watch.site)</h3>
+        <p>Created, Architected and Designed by <strong>Reetam Mukhopadhyay</strong></p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-meta-grid">
+          <div class="modal-meta-card">
+            <span class="meta-label">Domain</span>
+            <span class="meta-val"><a href="https://www.india-watch.site/" target="_blank" rel="noopener noreferrer">https://www.india-watch.site/</a></span>
+          </div>
+          <div class="modal-meta-card">
+            <span class="meta-label">Creator & Lead</span>
+            <span class="meta-val">Reetam Mukhopadhyay</span>
+          </div>
+          <div class="modal-meta-card">
+            <span class="meta-label">Focus</span>
+            <span class="meta-val">Indian News, Culture & Insights</span>
+          </div>
+          <div class="modal-meta-card">
+            <span class="meta-label">Status</span>
+            <span class="meta-val highlight-green">Active & Live</span>
+          </div>
+        </div>
+
+        <div class="modal-desc-block">
+          <h4>About The Project</h4>
+          <p>
+            India Watch is a standalone digital initiative built to provide a modern, curated window into topics shaping India today. 
+            Reetam brought together clean web architecture, intuitive typography, and focused content delivery to create an accessible public resource.
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="https://www.india-watch.site/" target="_blank" rel="noopener noreferrer" class="btn-glass-primary magnetic-item">
+          <span>Launch Live Website</span>
+          <i data-lucide="external-link"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">RM</span>
+        <span class="footer-title">Reetam Mukhopadhyay</span>
+      </div>
+      <p class="footer-copy">
+        Crafted with Light Glassmorphism, Three.js, GSAP & boundless curiosity. &copy; 2026 Reetam Mukhopadhyay.
+      </p>
+      <div class="footer-quick-links">
+        <a href="https://instagram.com/reetam911" target="_blank" rel="noopener noreferrer" class="magnetic-item"><i data-lucide="instagram"></i> Instagram (@reetam911)</a>
+        <a href="#hero" class="magnetic-item">Back to Top <i data-lucide="arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="three-scene.js"></script>
+  <script src="cursor.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
